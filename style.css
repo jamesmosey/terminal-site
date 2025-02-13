@@ -1,0 +1,87 @@
+body {
+    background: #2c2f33;
+    font-family: monospace;
+    overflow-x: hidden;
+}
+
+.terminal-header {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align text and ASCII art */
+    width: 100%;
+    position: relative;
+}
+
+.top-text {
+    color: aquamarine;
+    font-size: clamp(8px, 2vw, 16px);
+    position: absolute;
+    text-align: center;
+    transform: translateX(-31%) translateY(225%);
+    white-space: nowrap;
+}
+
+.btm-text {
+    color: aquamarine;
+    font-size: clamp(8px, 2vw, 16px);
+    position: absolute;
+    text-align: center;
+    transform: translateX(10%) translateY(825%);
+    white-space: nowrap;
+}
+
+.ascii {
+    display: flex;
+    justify-content: center; /* Centers the ASCII art */ /* Enables horizontal scrolling if needed */
+    width: 100%; /* Ensures it takes full width of the container */
+}
+
+.ascii pre {
+    color: aquamarine;
+    white-space: pre; /* Maintains ASCII formatting */
+    font-size: clamp(8px, 2vw, 16px); /* Makes text size responsive */
+    max-width: 100%; /* Prevents it from overflowing the screen */
+    text-align: center; /* Keeps the ASCII art centered */
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+    margin-right: 50px;
+}
+
+.output-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 80vh;
+}
+
+.command-line {
+    color: aquamarine;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 50px;
+}
+
+#userInput {
+    background: transparent; /* Makes background fully transparent */
+    border: none; /* Removes the border */
+    outline: none; /* Removes the outline when focused */
+    color: aquamarine; /* Sets text color */
+    font-size: 16px; /* Adjust text size */
+    caret-color: aquamarine; /* Ensures the cursor remains visible */
+    width: 100%; /* Makes it take full width of the container */
+    font-family: monospace;
+    margin-left: 5px;
+}
+
+.terminal-output {
+    color: aquamarine; /* Match terminal text color */
+    font-size: 16px; /* Adjust font size */
+    font-family: monospace; /* Terminal-style font */
+    white-space: pre-wrap; /* Preserve formatting */
+    margin: 5px 0; /* Space between lines */
+    margin-left: 50px;
+}
+
+
