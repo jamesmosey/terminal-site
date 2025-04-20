@@ -10,32 +10,48 @@
     <script src="index.js"></script>
 </head>
 
-<body>
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="top-text"></div>
-            <div class="ascii">
-                <pre>
-
+<main class="layout">
+    <!-- LEFT COLUMN: header + terminal -->
+    <div class="left-column">
+        <div class="terminal-header-box">
+            <div class="terminal-header">
+                <div class="top-text"></div>
+                <div class="ascii">
+                    <pre>
                 __                             __  ___                     
                / /___ _____ ___  ___  _____   /  |/  /___  ________  __  __
           __  / / __ `/ __ `__ \/ _ \/ ___/  / /|_/ / __ \/ ___/ _ \/ / / /
          / /_/ / /_/ / / / / / /  __(__  )  / /  / / /_/ (__  )  __/ /_/ / 
          \____/\__,_/_/ /_/ /_/\___/____/  /_/  /_/\____/____/\___/\__, /  
                                                                   /____/   
-         
-                </pre>
+                    </pre>
+                </div>
+                <div class="btm-text"></div>
             </div>
-            <div class="btm-text"></div>
         </div>
-    <div class="output-container"></div>
-    <div class="command-line">
-        <span>user@mosey.com:~$</span>
-        <input type="text" id="userInput" autocomplete="off" autofocus>
-    </div>
+
+        <div class="terminal-wrapper">
+            <div class="output-scroll-wrapper">
+                <div class="output-container"></div>
+            </div>
+
+            <div class="command-line">
+                <span class="prompt">user@mosey.com:~$</span>
+                <input type="text" id="userInput" autocomplete="off" autofocus>
+            </div>
+        </div>
     </div>
 
+    <!-- RIGHT COLUMN -->
+    <div class="right-column">
+        <div class="right-content">
+            <p>This is the right side box content. Add your content here!</p>
+        </div>
+    </div>
+</main>
 
-</body>
+
+
+
 
 </html>

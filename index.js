@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     input.focus();
 
-    document.addEventListener("click", function() {
+    document.addEventListener("click", function () {
         input.focus();
     });
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function handleCommand(command) {
-        switch (command.toLowerCase()) { 
+        switch (command.toLowerCase()) {
             case "help":
                 displayOutput("Available commands:\nhelp\nhello\nwhois\ncontact\nprojects\neducation\nclear");
                 break;
@@ -24,27 +24,36 @@ document.addEventListener("DOMContentLoaded", function () {
                 displayOutput("Hello, user! How can I assist you?");
                 break;
             case "clear":
-                clearOutput(); 
+                clearOutput();
                 break;
             default:
                 displayOutput(`Command not recognized: ${command}`);
         }
     }
 
+    const outputContainer = document.querySelector(".output-container");
+
     function displayOutput(message, type = "default") {
-        const outputContainer = document.querySelector(".output-container");
-        const output = document.createElement("div");
-        output.classList.add("terminal-output");
-        typewriterDOM(message, output, 50);
-        outputContainer.prepend(output);
+        const newLine = document.createElement("div");
+        newLine.classList.add("terminal-output");
+        newLine.textContent = message;
+        outputContainer.appendChild(newLine);
+
+        // Scroll to the bottom
+        const scrollWrapper = document.querySelector('.output-scroll-wrapper');
+        scrollWrapper.scrollTop = scrollWrapper.scrollHeight;
+
+        // Make sure you pass `newLine` as element to `typewriterDOM`
+        typewriterDOM(message, newLine, 50);
     }
-    
-    
+
+
+
     function clearOutput() {
         const outputs = document.querySelectorAll(".terminal-output");
         outputs.forEach(output => output.remove()); // Remove only command outputs
     }
-    
+
 });
 
 function typewriterNormal(message, elementSelector, speed) {
@@ -55,7 +64,7 @@ function typewriterNormal(message, elementSelector, speed) {
 
         displayedText = displayedText.replace(/help/g, '<span class="highlight">help</span>');
 
-        document.querySelector(elementSelector).innerHTML = 
+        document.querySelector(elementSelector).innerHTML =
             displayedText + (textPosition < message.length ? "<span>|</span>" : "");
 
         if (textPosition++ < message.length) {
@@ -86,9 +95,9 @@ function typewriterDOM(message, element, speed) {
 
 
 // Example Usage:
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     typewriterNormal("Welcome to the terminal of", ".top-text", 50);
-    
+
     setTimeout(() => {
         typewriterNormal("Type 'help' to see available commands.", ".btm-text", 50);
     }, 2000);
